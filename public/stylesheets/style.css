@@ -16,9 +16,9 @@ a {
   background: #9acfe1;
 }
 
-.image{
+.card-image{
   width: 100%;
-  height: 100px;
+  height: 200px;
 }
 
 .image-border{
@@ -29,6 +29,18 @@ a {
 }
 
 .resize{
+  width: 25px;
+  height: 25px;
+  margin-left: 30px;
+}
+
+.resize-2{
+  width: 25px;
+  height: 25px;
+  margin-right: 50px;
+}
+
+.resize-3{
   width: 25px;
   height: 25px;
 }
@@ -42,4 +54,16 @@ a {
   gap: 30px;
   font-size: 18px;
   align-items: center;
+  justify-content: center;
+}
+
+.body{
+  font-weight: bolder;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+}
+
+.space{
+  margin-left: 50px;
 }
