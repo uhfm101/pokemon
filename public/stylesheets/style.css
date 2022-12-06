@@ -10,7 +10,7 @@ a {
 .card{
   border-style: solid;
   border-width: 4px;
-  border-color: #00B7FF;
+  border-color: #ffe400;
   width: 370px;
   border-radius: 22px;
   background: #9acfe1;
@@ -22,14 +22,13 @@ a {
 }
 
 .image-border{
+  justify-content: center;
   border-style: solid;
   border-width: 3px;
-  border-color: #00B7FF;
-  padding: 30px;
+  border-color: #ffe400;
   height: 250px;
   width: 250px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  justify-content: center;
 }
 
 .resize{
@@ -38,15 +37,8 @@ a {
   margin-left: 30px;
 }
 
-.resize-2{
-  width: 25px;
-  height: 25px;
-  margin-right: 50px;
-}
+.space{
 
-.resize-3{
-  width: 25px;
-  height: 25px;
 }
 
 .red{
@@ -56,9 +48,9 @@ a {
 .head{
   display: flex;
   gap: 30px;
-  font-size: 18px;
+  font-size: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .body{
@@ -66,8 +58,26 @@ a {
   font-size: larger;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .space{
   margin-left: 50px;
+}
+
+.line{
+  width: 370px;
+  height: 25px;
+}
+
+.bottom{
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  font-style: italic;
+}
+
+.bottom-icon{
+  display: flex;
+  margin-right: 5px;
 }
