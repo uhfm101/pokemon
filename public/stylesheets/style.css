@@ -52,9 +52,11 @@ a {
   font-size: 20px;
   align-items: center;
   justify-content: space-between;
+  font-weight: bolder;
 }
 
 .body{
+  margin-top: 20px;
   font-weight: bolder;
   font-size: larger;
   display: flex;
@@ -83,4 +85,13 @@ a {
   justify-content: center;
   margin-right: 45px;
   gap: 110px;
+}
+
+.amount{
+  display: flex;
+}
+
+.container{
+  display: flex;
+  gap: 40px
 }

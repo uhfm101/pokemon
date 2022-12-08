@@ -1,22 +1,33 @@
 module.exports.viewAll = function(req, res, next){
-    const pokemon = {
+    const pokemons = [{
         id: 1,
         name: 'Mudkip',
-        type: 'Water',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pok%C3%A9mon_Water_Type_Icon.svg/1024px-Pok%C3%A9mon_Water_Type_Icon.svg.png',
-        health: '50 hp',
+        type: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pok%C3%A9mon_Water_Type_Icon.svg/1024px-Pok%C3%A9mon_Water_Type_Icon.svg.png',
+        image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/258.png',
+        health: 50,
         attack1: 'Water Gun',
         damage1: 40,
         energy1: 1,
         attack2: 'Water Pulse',
         damage2: 60,
         energy2: 2,
-        weakness: 'Water',
-        weaknessA: 1,
-        resistance: 'water',
-        resistanceA: 1,
-        retreatC: 'water',
-        retreatCA: 1
-    }
-    res.render('index', {pokemon})
+        weakness: 1,
+        resistance: 1,
+        retreatC: 1,
+    }, {  id: 2,
+        name: 'Mudkip',
+        type: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pok%C3%A9mon_Water_Type_Icon.svg/1024px-Pok%C3%A9mon_Water_Type_Icon.svg.png',
+        image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/258.png',
+        health: 50,
+        attack1: 'Water Gun',
+        damage1: 40,
+        energy1: 1,
+        attack2: 'Water Pulse',
+        damage2: 60,
+        energy2: 2,
+        weakness: 1,
+        resistance: 1,
+        retreatC: 1,
+}]
+    res.render('index', {pokemons})
 }
