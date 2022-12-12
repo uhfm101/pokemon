@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    div.form
+      div.header Edit Card
+          form(action= `/edit/${pokemon.id}` method = post)
+              div.form-input
+                  label(for= 'name') Name:
+                  input(type= 'text' id= 'name' name= 'name' value=pokemon.name)
+              div.form-input
+                  label(for= 'type') Type:
+                  select(id= 'type' name= 'type' autocomplete= 'off')
+              div.form-input
+                  label(for= 'image') Image URL:
+                  input(type= 'text' id= 'image' name= 'image' value= pokemon.image)
+              div.form-input
+                  label(for= 'health') Health:
+                  input(type= 'text' id= 'health' name= 'health' value= pokemon.health)
+              div.form-input
+                  label(for= 'attack1') First Attack:
+                  input(type= 'text' id= 'attack1' name= 'attack1' value= pokemon.attack1)
+              div.form-input
+                  label(for= 'damage1') Damage for First Attack:
+                  input(type= 'text' id= 'damage1' name= 'damage1' value= pokemon.damage1)
+              div.form-input
+                  label(for= 'energy1') Energy for First Attack:
+                  input(type= 'text' id= 'energy1' name= 'energy1' value= pokemon.energy1)
+              div.form-input
+                  label(for= 'attack2') Second Attack:
+                  input(type= 'text' id= 'attack2' name= 'attack2' value= pokemon.attack2)
+              div.form-input
+                  label(for= 'damage2') Damage for Second Attack:
+                  input(type= 'text' id= 'damage2' name= 'damage2' value= pokemon.damage2)
+              div.form-input
+                  label(for= 'energy2') Energy for Second Attack:
+                  input(type= 'text' id= 'energy2' name= 'energy2' value= pokemon.energy2)
+              div.button-row
+                  a.button.cancel(href= '/') Cancel
+                  a.button.delete(href= `/delete/${pokemon.id}`) Delete
+                  button.button.save(type='submit') Submit

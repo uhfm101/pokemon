@@ -7,7 +7,7 @@ mixin pokemonCard(pokemon)
 
         div.image-border
             div.edit
-                a(href= '#') Edit
+                a(href= `/edit/${pokemon.id}`) Edit
             img.image(src= pokemon.image)
         div.body
             div.amount
