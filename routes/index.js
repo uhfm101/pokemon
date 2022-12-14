@@ -13,4 +13,6 @@ router.get('/delete/:id', pokemonController.deleteCard)
 
 router.get('/add', pokemonController.renderAddForm)
 
+router.post('/add', pokemonController.addCard)
+
 module.exports = router;

@@ -10,6 +10,8 @@ mixin pokemonForm(pokemon, actionURL, mode, title)
                 div.form-input
                     label(for= 'type') Type:
                     select(id= 'type' name= 'type' autocomplete= 'off')
+                        each type in types
+                            option(value= type selected = (type === pokemon.type)) #{type}
                 div.form-input
                     label(for= 'image') Image URL:
                     input(type= 'text' id= 'image' name= 'image' value= pokemon.image)

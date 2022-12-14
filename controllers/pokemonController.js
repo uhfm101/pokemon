@@ -13,7 +13,7 @@ module.exports.renderEditForm = async function(req, res, next){
 }
 
 module.exports.updateCard = async function(req, res){
-    await Pokemon.update(
+    const newP = await Pokemon.update(
         {
             name: req.body.name,
             type: req.body.type,
@@ -35,6 +35,7 @@ module.exports.updateCard = async function(req, res){
                     id: req.params.id
                 }
         });
+    console.log(newP)
     res.redirect('/')
 }
 
@@ -68,22 +69,25 @@ module.exports.renderAddForm = function(req, res){
     res.render('add', {pokemon, types});
 }
 
-module.exports.addCard = async function(req, res){
-    await Pokemon.create(
-        {
-            name: req.body.name,
-            type: req.body.type,
-            image: req.body.image,
-            health: req.body.health,
-            attack1: req.body.attack1,
-            damage1: req.body.damage1,
-            energy1: req.body.energy1,
-            attack2: req.body.attack2,
-            damage2: req.body.damage2,
-            energy2: req.body.energy2,
-            weakness: req.body.weakness,
-            resistance: req.body.resistance,
-            retreatC: req.body.retreatC
-        });
+module.exports.addCard = function(req, res){
+    console.log("run")
+    console.log(req.body.name)
+   //  const newP = await Pokemon.create(
+   //      {
+   //          name: req.body.name,
+   //          type: req.body.type,
+   //          image: req.body.image,
+   //          health: req.body.health,
+   //          attack1: req.body.attack1,
+   //          damage1: req.body.damage1,
+   //          energy1: req.body.energy1,
+   //          attack2: req.body.attack2,
+   //          damage2: req.body.damage2,
+   //          energy2: req.body.energy2,
+   //          weakness: req.body.weakness,
+   //          resistance: req.body.resistance,
+   //          retreatC: req.body.retreatC
+   //      });
+   // console.log(newP)
     res.redirect('/')
 }
