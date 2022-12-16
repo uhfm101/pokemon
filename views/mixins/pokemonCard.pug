@@ -3,24 +3,24 @@ mixin pokemonCard(pokemon)
     div.card
         div.head= pokemon.name
             div.red= `${pokemon.health} HP`
-            img.resize(src= pokemon.type)
+            //img.resize(src= pokemon.type)
 
         div.image-border
             div.edit
                 a(href= `/edit/${pokemon.id}`) Edit
             img.image(src= pokemon.image)
         div.body
-            div.amount
-                -for (let i = 0; i < pokemon.energy1; i++)
-                        img.resize-icon(src= pokemon.type)
+            //div.amount
+            //    -for (let i = 0; i < pokemon.energy1; i++)
+            //            img.resize-icon(src= pokemon.type)
             div= pokemon.attack1
             div= pokemon.damage1
         div.body
             img.line(src= `/images/line-removebg-preview.png`)
         div.body
-            div.amount
-                -for(let i = 0; i<pokemon.energy2; i++)
-                  img.resize-icon(src= pokemon.type)
+            //div.amount
+            //    -for(let i = 0; i<pokemon.energy2; i++)
+            //      img.resize-icon(src= pokemon.type)
             div= pokemon.attack2
             div= pokemon.damage2
         div.body
@@ -30,12 +30,12 @@ mixin pokemonCard(pokemon)
             p Resistance
             p Retreat cost
         div.bottom-icon
-            div.amount
-                -for (let i = 0; i < pokemon.weakness; i++)
-                        img.resize-icon(src= pokemon.type)
-            div.amount
-                -for (let i = 0; i < pokemon.resistance; i++)
-                        img.resize-icon(src= pokemon.type)
-            div.amount
-                -for (let i = 0; i < pokemon.retreatC; i++)
-                        img.resize-icon(src= pokemon.type)
+            //div.amount
+            //    -for (let i = 0; i < pokemon.weakness; i++)
+            //            img.resize-icon(src= pokemon.type)
+            //div.amount
+            //    -for (let i = 0; i < pokemon.resistance; i++)
+            //            img.resize-icon(src= pokemon.type)
+            //div.amount
+            //    -for (let i = 0; i < pokemon.retreatC; i++)
+            //            img.resize-icon(src= pokemon.type)

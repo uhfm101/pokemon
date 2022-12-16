@@ -1,6 +1,6 @@
 const {Pokemon} = require('../models')
 const e = require("express");
-const types = ['Water', 'Fire', 'Grass', 'Rock', 'Electric']
+// const types = ['Water', 'Fire', 'Grass', 'Rock', 'Electric']
 module.exports.viewAll = async function(req, res, next){
     const pokemons = await Pokemon.findAll();
     res.render('index', {pokemons})
@@ -10,7 +10,7 @@ module.exports.renderEditForm = async function(req, res, next){
     const pokemon = await Pokemon.findByPk(
         req.params.id
     );
-    res.render('edit', {pokemon, types});
+    res.render('edit', {pokemon});
 }
 
 module.exports.updateCard = async function(req, res){
@@ -54,7 +54,7 @@ module.exports.deleteCard = async function(req, res){
 module.exports.renderAddForm = function(req, res){
     const pokemon = {
         name: " ",
-        type: types[0],
+        // type: types[0],
         image: " ",
         health: 1,
         attack1: " ",
@@ -67,14 +67,14 @@ module.exports.renderAddForm = function(req, res){
         resistance: 1,
         retreatC: 1
     };
-    res.render('add', {pokemon, types});
+    res.render('add', {pokemon});
 }
 
 module.exports.addCard = async function(req, res){
     await Pokemon.create(
         {
             name: req.body.name,
-            type: req.body.type,
+            // type: req.body.type,
             image: req.body.image,
             health: req.body.health,
             attack1: req.body.attack1,
