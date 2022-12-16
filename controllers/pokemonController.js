@@ -1,20 +1,39 @@
 const {Pokemon} = require('../models')
 const e = require("express");
-// const types = ['Water', 'Fire', 'Grass', 'Rock', 'Electric']
-module.exports.viewAll = async function(req, res, next){
-    const pokemons = await Pokemon.findAll();
-    res.render('index', {pokemons})
+const types = ['Water', 'Fire', 'Grass', 'Rock', 'Electric']
+module.exports.viewAll = async function(req, res){
+    let searchTypes = ['All'];
+    for(let i = 0; i<types.length; i++){
+        searchTypes.push(types[i]);
+    }
+    let pokemons;
+    let searchType = req.query.category || 'All';
+    let searchRandom = req.query.random || false;
+    if(searchType === 'All'){
+        pokemons = await Pokemon.findAll();
+    } else{
+        pokemons = await Pokemon.findAll({
+            where: {
+                type: searchType
+            }
+        })
+    }
+    if (pokemons.length > 0 && searchRandom){
+        let randomIndex = random(pokemons.length);
+        pokemons = [pokemons[randomIndex]]
+    }
+    res.render('index', {pokemons, types:searchTypes, searchType, searchRandom})
 }
 
 module.exports.renderEditForm = async function(req, res, next){
     const pokemon = await Pokemon.findByPk(
         req.params.id
     );
-    res.render('edit', {pokemon});
+    res.render('edit', {pokemon, types});
 }
 
 module.exports.updateCard = async function(req, res){
-    const newP = await Pokemon.update(
+    await Pokemon.update(
         {
             name: req.body.name,
             type: req.body.type,
@@ -36,7 +55,6 @@ module.exports.updateCard = async function(req, res){
                     id: req.params.id
                 }
         });
-    console.log(newP)
     res.redirect('/')
 }
 
@@ -54,7 +72,7 @@ module.exports.deleteCard = async function(req, res){
 module.exports.renderAddForm = function(req, res){
     const pokemon = {
         name: " ",
-        // type: types[0],
+        type: types[0],
         image: " ",
         health: 1,
         attack1: " ",
@@ -67,14 +85,14 @@ module.exports.renderAddForm = function(req, res){
         resistance: 1,
         retreatC: 1
     };
-    res.render('add', {pokemon});
+    res.render('add', {pokemon, types});
 }
 
 module.exports.addCard = async function(req, res){
     await Pokemon.create(
         {
             name: req.body.name,
-            // type: req.body.type,
+            type: req.body.type,
             image: req.body.image,
             health: req.body.health,
             attack1: req.body.attack1,
@@ -90,18 +108,23 @@ module.exports.addCard = async function(req, res){
     res.redirect('/')
 }
 
-function getType(type){
-    if (type === "Water"){
-        return "water"
-    } else if (type === "Fire"){
-        return "fire"
-    } else if (type === "Grass"){
-        return "grass"
-    } else if (type === "Rock"){
-        return "rock"
-    } else if (type === "Electric"){
-        return "electric"
-    } else{
-        return ""
-    }
+// function getType(type){
+//     if (type === "Water"){
+//         return "water"
+//         pokemon.type = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pok%C3%A9mon_Water_Type_Icon.svg/1024px-Pok%C3%A9mon_Water_Type_Icon.svg.png"
+//     } else if (type === "Fire"){
+//         return "fire"
+//     } else if (type === "Grass"){
+//         return "grass"
+//     } else if (type === "Rock"){
+//         return "rock"
+//     } else if (type === "Electric"){
+//         return "electric"
+//     } else{
+//         return ""
+//     }
+// }
+
+function random(int){
+    return Math.floor(Math.random() * int)
 }
